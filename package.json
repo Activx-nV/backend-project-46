@@ -129,6 +129,7 @@
     "language-tags": "^1.0.7",
     "levn": "^0.4.1",
     "locate-path": "^6.0.0",
+    "lodash": "^4.17.21",
     "lodash.merge": "^4.6.2",
     "loose-envify": "^1.4.0",
     "minimatch": "^3.1.2",
@@ -206,5 +207,8 @@
   "bugs": {
     "url": "https://github.com/Activx-nV/backend-project-46/issues"
   },
-  "homepage": "https://github.com/Activx-nV/backend-project-46#readme"
+  "homepage": "https://github.com/Activx-nV/backend-project-46#readme",
+  "devDependencies": {
+    "eslint-plugin-node": "^11.1.0"
+  }
 }
