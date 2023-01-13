@@ -196,7 +196,7 @@
     "yocto-queue": "^0.1.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -209,6 +209,8 @@
   },
   "homepage": "https://github.com/Activx-nV/backend-project-46#readme",
   "devDependencies": {
-    "eslint-plugin-node": "^11.1.0"
+    "eslint-plugin-jest": "^27.2.1",
+    "eslint-plugin-node": "^11.1.0",
+    "jest": "^29.3.1"
   }
 }

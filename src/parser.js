@@ -3,7 +3,11 @@ const parseFile = (extension, fileData) => {
     case '.json':
       return JSON.parse(fileData);
     case '.yaml':
-      return;
+      break;
+    default:
+      throw new Error(
+        `${extension} is an unsupported file extension. Supported file extensions at the moment are: .json`
+      );
   }
 };
 
