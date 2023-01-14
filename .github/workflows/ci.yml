@@ -4,12 +4,16 @@ on: push
 jobs:
   build:
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
     
     steps:
     - uses: actions/checkout@v2
     - uses: actions/setup-node@v2
       with:
-        node-version: 16
+        node-version: ${{ matrix.node }}
     - name: Run project installation
       run: make install
     - name: Run linter
