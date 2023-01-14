@@ -7,38 +7,16 @@ import parseFile from './parser.js';
 
 const getFilePath = (pathToFile) => path.resolve(process.cwd(), pathToFile);
 
-const getFileExtension = (filePath) => path.extname(filePath);
+export const getFileExtension = (filePath) => path.extname(filePath);
 
-const readFileData = (filePath) => fs.readFileSync(filePath, 'utf-8');
+export const readFileData = (filePath) => fs.readFileSync(filePath, 'utf-8');
 
 const genDiff = (filePathOne, filePathTwo) => {
   const pathToFileOne = getFilePath(filePathOne);
   const pathToFileTwo = getFilePath(filePathTwo);
 
-  const pathOneExists = fs.existsSync(pathToFileOne);
-  const pathTwoExists = fs.existsSync(pathToFileTwo);
-
-  if (!pathOneExists || !pathTwoExists) {
-    if (!pathOneExists && !pathTwoExists) {
-      console.log('None of two paths were found');
-      return;
-    }
-    console.log(
-      !pathOneExists
-        ? `Path: ${filepathOne} doesn't exist`
-        : `Path: ${filepathTwo} doesn't exist`
-    );
-    return;
-  }
-
-  const fileData1 = parseFile(
-    getFileExtension(pathToFileOne),
-    readFileData(pathToFileOne)
-  );
-  const fileData2 = parseFile(
-    getFileExtension(pathToFileTwo),
-    readFileData(pathToFileTwo)
-  );
+  const fileData1 = parseFile(getFileExtension(pathToFileOne), readFileData(pathToFileOne));
+  const fileData2 = parseFile(getFileExtension(pathToFileTwo), readFileData(pathToFileTwo));
 
   const firstFileKeys = Object.keys(fileData1);
   const secondFileKeys = Object.keys(fileData2);
@@ -90,12 +68,12 @@ const genDiff = (filePathOne, filePathTwo) => {
         return `${doubleSpace}- ${item.key}: ${item.valueOne}${newLineChar}${doubleSpace}+ ${item.key}: ${item.valueTwo}`;
       case 'unchanged':
         return `${doubleSpace.repeat(2)}${item.key}: ${item.value}`;
+      default:
+        throw new Error(`'${item.type}' type is an unknown type`);
     }
   });
 
-  return [`${newLineChar}{`, ...formattedTree, `}${newLineChar}`].join(
-    newLineChar
-  );
+  return [`${newLineChar}{`, ...formattedTree, `}${newLineChar}`].join(newLineChar);
 };
 
 export default genDiff;
