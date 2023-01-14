@@ -11,9 +11,9 @@ jobs:
       with:
         node-version: 18
     - name: Run project installation
-    - run: make install
+      run: make install
     - name: Run linter
-    - run: make lint
+      run: make lint
     - name: Codeclimate Test Coverage Action
     - uses: paambaati/codeclimate-action@v3.0.0
       env: 
