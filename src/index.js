@@ -15,8 +15,14 @@ const genDiff = (filePathOne, filePathTwo) => {
   const pathToFileOne = getFilePath(filePathOne);
   const pathToFileTwo = getFilePath(filePathTwo);
 
-  const fileData1 = parseFile(getFileExtension(pathToFileOne), readFileData(pathToFileOne));
-  const fileData2 = parseFile(getFileExtension(pathToFileTwo), readFileData(pathToFileTwo));
+  const fileExtension1 = getFileExtension(pathToFileOne);
+  const fileExtension2 = getFileExtension(pathToFileOne);
+
+  const readFile1 = readFileData(pathToFileOne);
+  const readFile2 = readFileData(pathToFileTwo);
+
+  const fileData1 = parseFile(fileExtension1, readFile1);
+  const fileData2 = parseFile(fileExtension2, readFile2);
 
   const firstFileKeys = Object.keys(fileData1);
   const secondFileKeys = Object.keys(fileData2);
