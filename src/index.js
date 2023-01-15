@@ -3,7 +3,7 @@ import path from 'path';
 import process from 'process';
 import _ from 'lodash';
 
-import parseFile from './parser.js';
+import parseFile from './parsers.js';
 
 const getFilePath = (pathToFile) => path.resolve(process.cwd(), pathToFile);
 
@@ -14,6 +14,14 @@ export const readFileData = (filePath) => fs.readFileSync(filePath, 'utf-8');
 const genDiff = (filePathOne, filePathTwo) => {
   const pathToFileOne = getFilePath(filePathOne);
   const pathToFileTwo = getFilePath(filePathTwo);
+
+  const path1Exists = fs.existsSync(pathToFileOne);
+  const path2Exists = fs.existsSync(pathToFileTwo);
+  console.log(path1Exists, path2Exists);
+
+  if (!path1Exists || !path2Exists) {
+    throw new Error('One or two file paths were not found.\n');
+  }
 
   const fileData1 = parseFile(getFileExtension(pathToFileOne), readFileData(pathToFileOne));
   const fileData2 = parseFile(getFileExtension(pathToFileTwo), readFileData(pathToFileTwo));

@@ -1,11 +1,14 @@
+import { load } from 'js-yaml';
+
 const parseFile = (extension, fileData) => {
   switch (extension) {
     case '.json':
       return JSON.parse(fileData);
     case '.yaml':
-      return null;
+    case '.yml':
+      return load(fileData);
     default:
-      throw new Error(`${extension} is an unsupported file extension. Supported file extensions at the moment are: .json`);
+      throw new Error('Unknown file extension. Supported extensions: .json, .yaml, .yml');
   }
 };
 

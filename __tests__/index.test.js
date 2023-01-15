@@ -1,4 +1,4 @@
-import { test, expect } from '@jest/globals';
+import { test, expect, describe } from '@jest/globals';
 import path from 'path';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
@@ -16,6 +16,18 @@ beforeAll(() => {
   __dirname = path.dirname(__filename);
 });
 
-test('Check difference between two files', () => {
-  expect(genDiff(getFixturePath('file1.json'), getFixturePath('file2.json'))).toEqual(readFile('expected_file.txt'));
+const fileExtensions = ['.json', '.yaml', '.yml'];
+
+describe('Check difference between two files', () => {
+  test.each(fileExtensions)(`Check file extensions: ${fileExtensions.join(' / ')}`, (extension) => {
+    expect(genDiff(getFixturePath(`file1${extension}`), getFixturePath(`file2${extension}`))).toEqual(readFile('expected_file.txt'));
+  });
+
+  test('Get an error when file was not found', () => {
+    expect(() => genDiff(getFixturePath('file1.jzon'), getFixturePath('file2.json'))).toThrow('One or two file paths were not found.');
+  });
+
+  test('Get an error when file extension was not found', () => {
+    expect(() => genDiff(getFixturePath('file1.xml'), getFixturePath('file2.json'))).toThrow('Unknown file extension. Supported extensions: .json, .yaml, .yml');
+  });
 });
