@@ -20,7 +20,7 @@ const fileExtensions = ['.json', '.yaml', '.yml'];
 
 describe('Check difference between two files', () => {
   test.each(fileExtensions)(`Check file extensions: ${fileExtensions.join(' / ')}`, (extension) => {
-    expect(genDiff(getFixturePath(`file1${extension}`), getFixturePath(`file2${extension}`))).toEqual(readFile('expected_file.txt'));
+    expect(genDiff(getFixturePath(`file1${extension}`), getFixturePath(`file2${extension}`))).toEqual(readFile('expected_stylish_result.txt'));
   });
 
   test('Get an error when file was not found', () => {
