@@ -4,7 +4,7 @@ import process from 'process';
 
 import parseFile from './parsers.js';
 import createTree from './createTree.js';
-import formatter from './formatters/formatter.js';
+import formatter from './formatters/index.js';
 
 const getFilePath = (pathToFile) => path.resolve(process.cwd(), pathToFile);
 
