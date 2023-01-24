@@ -11,5 +11,28 @@
 ### Build & Tests:
 [![ci](https://github.com/Activx-nV/backend-project-46/actions/workflows/ci.yml/badge.svg)](https://github.com/Activx-nV/backend-project-46/actions/workflows/ci.yml)
 
+## Gendiff tool
+Allows to compare two configuration files and show difference in different formats.
+
+##### Supported formats of output (-f / --format options):
+```sh
+stylish    /    plain     /   json
+```
+
+## Setup
+Node.JS is required. Clone the project, then go to the main(root) directory in terminal and use commands below:
+
+```sh
+$ make install
+```
+
+```sh
+$ make publish
+```
+
+```sh
+$ npm link
+```
+
 ### How to use gendiff tool
 [![asciicast](https://asciinema.org/a/7Ul1H9tPMiUf6f2xDizGYLcmN.svg)](https://asciinema.org/a/7Ul1H9tPMiUf6f2xDizGYLcmN)
