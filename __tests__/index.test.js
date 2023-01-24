@@ -22,6 +22,7 @@ describe('Check difference between two files', () => {
   test.each(fileExtensions)(`Check file extensions: ${fileExtensions.join(' / ')}`, (extension) => {
     expect(genDiff(getFixturePath(`file1${extension}`), getFixturePath(`file2${extension}`), 'stylish')).toEqual(readFile('expected_stylish_result.txt'));
     expect(genDiff(getFixturePath(`file1${extension}`), getFixturePath(`file2${extension}`), 'plain')).toEqual(readFile('expected_plain_result.txt'));
+    expect(genDiff(getFixturePath(`file1${extension}`), getFixturePath(`file2${extension}`), 'json')).toEqual(readFile('expected_json_result.txt'));
   });
 
   test('Get an error when file was not found', () => {
