@@ -3,7 +3,7 @@ import path from 'path';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 
-import genDiff from '../src/index.js';
+import genDiff from '../index.js';
 
 let __filename;
 let __dirname;
