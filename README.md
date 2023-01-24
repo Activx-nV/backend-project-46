@@ -12,11 +12,11 @@
 [![ci](https://github.com/Activx-nV/backend-project-46/actions/workflows/ci.yml/badge.svg)](https://github.com/Activx-nV/backend-project-46/actions/workflows/ci.yml)
 
 ## Gendiff tool
-Allows to compare two configuration files and show difference in three formats.
+Allows to compare two configuration files and show difference in 3 formats.
 
 ##### Supported formats of output (-f / --format options):
 ```sh
-stylish    /    plain     /   json
+stylish   /   plain   /   json
 ```
 
 ## Setup
