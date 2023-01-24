@@ -12,4 +12,4 @@
 [![ci](https://github.com/Activx-nV/backend-project-46/actions/workflows/ci.yml/badge.svg)](https://github.com/Activx-nV/backend-project-46/actions/workflows/ci.yml)
 
 ### How to use gendiff tool
-[![asciicast](https://asciinema.org/a/44c7fXGvlFeBYxdQXHCQmENHB.svg)](https://asciinema.org/a/44c7fXGvlFeBYxdQXHCQmENHB)
+[![asciicast](https://asciinema.org/a/7Ul1H9tPMiUf6f2xDizGYLcmN.svg)](https://asciinema.org/a/7Ul1H9tPMiUf6f2xDizGYLcmN)
