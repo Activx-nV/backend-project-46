@@ -14,7 +14,7 @@
 ## Gendiff tool
 Allows to compare two configuration files and show difference in 3 formats.
 
-##### Supported formats of output (-f / --format options):
+##### Supported output formats (-f / --format):
 ```sh
 stylish   /   plain   /   json
 ```
