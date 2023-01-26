@@ -29,7 +29,7 @@ const stringify = (data, depth) => {
     return `${indents.openBracket}  ${key}: ${stringify(data[key], depth + 1)}`;
   });
 
-  return ['{', ...result, `${indents.closeBracket}}`].join('\n');
+  return ['{', ...result, `${indents.closeBracket}}`].join(newLineChar);
 };
 
 const stylish = (tree, depth = 1) => {
