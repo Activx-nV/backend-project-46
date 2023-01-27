@@ -3,7 +3,7 @@ import path from 'path';
 import { readFileSync } from 'fs';
 import { fileURLToPath } from 'url';
 
-import genDiff from '../index.js';
+import genDiff from '../src/index.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -25,6 +25,6 @@ describe('Check difference between two files', () => {
   });
 
   test('Get an error when file extension was not found', () => {
-    expect(() => genDiff(getFixturePath('file1.xml'), getFixturePath('file2.json'))).toThrow('Unknown file extension. Supported extensions: .json, .yaml, .yml');
+    expect(() => genDiff(getFixturePath('file1.xml'), getFixturePath('file2.json'))).toThrow('Unknown file extension.');
   });
 });

@@ -2,9 +2,9 @@ import fs from 'fs';
 import path from 'path';
 import process from 'process';
 
-import parseFile from './src/parsers.js';
-import createTree from './src/createTree.js';
-import formatter from './src/formatters/index.js';
+import parseFile from './parsers.js';
+import createTree from './createTree.js';
+import formatter from './formatters/index.js';
 
 const getFilePath = (pathToFile) => path.resolve(process.cwd(), pathToFile);
 

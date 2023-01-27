@@ -8,7 +8,7 @@ const parseFile = (extension, fileData) => {
     case '.yml':
       return load(fileData);
     default:
-      throw new Error('Unknown file extension. Supported extensions: .json, .yaml, .yml');
+      throw new Error('Unknown file extension.');
   }
 };
 
